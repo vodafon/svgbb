@@ -1,6 +1,6 @@
 # svgbb
 
-`svgbb` is a simple, fast, and portable command-line tool written in Go for generating SVG-based security payloads. It's designed for bug bounty hunters and security researchers who need to quickly create a set of SVG files for testing vulnerabilities like Server-Side Request Forgery (SSRF), and XML External Entity (XXE) injection.
+`svgbb` is a simple, fast, and portable command-line tool for generating SVG-based security payloads. It's designed for bug bounty hunters and security researchers who need to quickly create a set of SVG files for testing vulnerabilities like Server-Side Request Forgery (SSRF), and XML External Entity (XXE) injection.
 
 The tool works by taking a set of SVG templates, injecting a user-provided string (like a URL or a JavaScript payload), and saving the results as new `.svg` files. All templates are embedded directly into the binary, making the tool a single, self-contained executable that you can run anywhere.
 
@@ -36,5 +36,5 @@ The tool has three command-line flags:
 Let's generate a set of SVG files for an XSS payload that will try to load a script from a collaborator server.
 
 ```
-svgbb -s "//https://www.google.com/search?q=your-collaborator-id.oastify.com" -dir "output" -prefix "ssrf-"
+svgbb -s "https://your-collaborator-id.oastify.com" -dir "output" -prefix "ssrf-"
 ```
